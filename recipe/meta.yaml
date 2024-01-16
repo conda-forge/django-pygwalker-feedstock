@@ -1,5 +1,5 @@
 {% set name = "django-pygwalker" %}
-{% set version = "0.0.7" %}
+{% set version = "0.0.8" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/django-pygwalker-{{ version }}.tar.gz
-  sha256: 8049b5173c0221f58e1482a8c61ded9354814c7c0c6ba27230bb813ef0ea45ca
+  sha256: d4ce480b7a63faaae44729ad04cdc17575bffbcb6eb57789330ca24ade8fa938
 
 build:
   noarch: python
