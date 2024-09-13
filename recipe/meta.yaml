@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/django_pygwalker-{{ version }}.tar.gz
   sha256: f816ec074aeb0a95252cd819221f91374ba8823780255885afd51c8e9cc61274
 
 build:
@@ -27,7 +27,7 @@ requirements:
     - django >=3.2,<5.0
     - django-handyhelpers >=0.3.10
     - pandas
-    - pygwalker
+    - pygwalker <0.4.9.8
 
 test:
   imports:
