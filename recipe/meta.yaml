@@ -1,13 +1,13 @@
 {% set name = "django-pygwalker" %}
-{% set version = "0.0.8" %}
+{% set version = "0.0.9" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/django-pygwalker-{{ version }}.tar.gz
-  sha256: d4ce480b7a63faaae44729ad04cdc17575bffbcb6eb57789330ca24ade8fa938
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/django_pygwalker-{{ version }}.tar.gz
+  sha256: f816ec074aeb0a95252cd819221f91374ba8823780255885afd51c8e9cc61274
 
 build:
   noarch: python
@@ -27,7 +27,7 @@ requirements:
     - django >=3.2,<5.0
     - django-handyhelpers >=0.3.10
     - pandas
-    - pygwalker
+    - pygwalker <0.4.9.8
 
 test:
   imports:
