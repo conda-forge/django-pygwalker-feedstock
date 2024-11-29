@@ -1,13 +1,13 @@
 {% set name = "django-pygwalker" %}
-{% set version = "0.0.8" %}
+{% set version = "0.0.9" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/django-pygwalker-{{ version }}.tar.gz
-  sha256: d4ce480b7a63faaae44729ad04cdc17575bffbcb6eb57789330ca24ade8fa938
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/django_pygwalker-{{ version }}.tar.gz
+  sha256: f816ec074aeb0a95252cd819221f91374ba8823780255885afd51c8e9cc61274
 
 build:
   noarch: python
@@ -16,14 +16,14 @@ build:
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - python-build
     - setuptools >=67.7.2
     - setuptools-scm >=7.1
     - wheel >=0.40.0
     - pip
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - django >=3.2,<5.0
     - django-handyhelpers >=0.3.10
     - pandas
@@ -32,9 +32,17 @@ requirements:
 test:
   imports:
     - djangoaddicts.pygwalker
-  commands:
-    - pip check
+#  commands:
+#    - pip check
+  # + pip check Errors to be resolved upstream 
+  # https://github.com/conda-forge/pygwalker-feedstock/blob/main/recipe/meta.yaml
+  # Requires wasmtime (python-wasmtime) for gw-dsl-parser, segment-analytics-python ==2.2.3 is called analytics-python,  quickjs is called python-quickjs 1.19.4
+  # pygwalker 0.4.9.13 requires anywidget, which is not installed.
+  # pygwalker 0.4.9.13 requires gw-dsl-parser, which is not installed.
+  # pygwalker 0.4.9.13 requires quickjs, which is not installed.
+  # pygwalker 0.4.9.13 has requirement segment-analytics-python==2.2.3, but you have segment-analytics-python 2.2.2
   requires:
+    - python {{ python_min }}
     - pip
 
 about:
