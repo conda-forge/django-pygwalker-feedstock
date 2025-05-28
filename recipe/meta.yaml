@@ -12,7 +12,7 @@ source:
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
@@ -24,7 +24,7 @@ requirements:
     - pip
   run:
     - python >={{ python_min }}
-    - django >=3.2,<5.0
+    - django
     - django-handyhelpers >=0.3.10
     - pandas
     - pygwalker
@@ -32,8 +32,8 @@ requirements:
 test:
   imports:
     - djangoaddicts.pygwalker
-#  commands:
-#    - pip check
+  commands:
+    - pip check
   # + pip check Errors to be resolved upstream 
   # https://github.com/conda-forge/pygwalker-feedstock/blob/main/recipe/meta.yaml
   # Requires wasmtime (python-wasmtime) for gw-dsl-parser, segment-analytics-python ==2.2.3 is called analytics-python,  quickjs is called python-quickjs 1.19.4
